@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Video Prediction</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Viral Probability of a YouTube Title</h1>
+
+        <form method="POST" action="/predict">
+            <input type="text" name="title" placeholder="Enter YouTube video title" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if title %}
+            <div class="result">
+                <h2>Title: "{{ title }}"</h2>
+                <p>The probability that this video will go viral is: {{ viral_probability|round(2) * 100 }}%</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
